@@ -1,3 +1,4 @@
+# Note: update Jenkins by running docker pull jenkins/jenkins:lts
 docker run \
   --name jenkins \
   --detach \
