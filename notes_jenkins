@@ -1,0 +1,9 @@
+# Create a signing key for Jenkins:
+gpg --full-generate-key
+gpg --list-secret-keys --keyid-format SHORT
+gpg --export-secret-keys >~/.gnupg/secring.gpg
+cat >.gradle/gradle.properties <<EOF
+signing.keyId=<KEY-ID>
+signing.password=<KEY-PW>
+signing.secretKeyRingFile=/var/jenkins_home/.gnupg/secring.gpg
+EOF
