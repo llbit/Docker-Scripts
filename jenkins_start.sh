@@ -3,6 +3,7 @@
 # NB: /mnt/vmstore/jenkins_home should be created first.
 
 # Note: update Jenkins by running docker pull jenkins/jenkins:lts
+# Shut Jenkins down by first going to http://localhost:8080/quietDown
 docker run \
   --name jenkins \
   --detach \
