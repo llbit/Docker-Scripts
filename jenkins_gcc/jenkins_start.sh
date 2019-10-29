@@ -1,6 +1,8 @@
 #!/bin/sh
 
 docker build -t jenkins_gcc .
+docker stop jenkins
+docker rm jenkins
 docker run \
 	--name jenkins \
 	--detach \
