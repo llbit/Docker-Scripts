@@ -1,4 +1,5 @@
 #!/bin/sh
+# NB: Replaced by systemd service!
 
 docker build -t jenkins_gcc .
 docker stop jenkins
