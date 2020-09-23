@@ -14,7 +14,7 @@ TimeoutStartSec=0
 Restart=always
 ExecStartPre=-/usr/bin/docker stop %n
 ExecStartPre=-/usr/bin/docker rm %n
-ExecStartPre=/usr/bin/docker pull jenkins
+ExecStartPre=/usr/bin/docker pull jenkins/jenkins
 ExecStart=/usr/bin/docker $DOCKER_ARGS
 
 [Install]

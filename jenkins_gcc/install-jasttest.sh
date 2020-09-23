@@ -1,6 +1,4 @@
 #!/bin/bash
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-USER=$(whoami)
 DOCKER_ARGS="run --name %n -u $(id -u):$(id -g) -p 80:8080 -p 50000:50000 -v /jasttest/jenkins_home:/var/jenkins_home jenkins_gcc"
 echo "$DOCKER_ARGS"
 UNIT=${1:-/etc/systemd/system/jenkins.service}
@@ -16,7 +14,7 @@ TimeoutStartSec=0
 Restart=always
 ExecStartPre=-/usr/bin/docker stop %n
 ExecStartPre=-/usr/bin/docker rm %n
-ExecStartPre=/usr/bin/docker pull jenkins
+ExecStartPre=/usr/bin/docker pull jenkins/jenkins
 ExecStartPre=/usr/bin/docker build -t jenkins_gcc /home/csz-jso
 ExecStart=/usr/bin/docker $DOCKER_ARGS
 
