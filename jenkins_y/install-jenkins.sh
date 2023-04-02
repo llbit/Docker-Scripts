@@ -15,7 +15,7 @@ Restart=always
 ExecStartPre=-/usr/bin/docker stop %n
 ExecStartPre=-/usr/bin/docker rm %n
 ExecStartPre=/usr/bin/docker pull jenkins/jenkins
-ExecStartPre=/usr/bin/docker build -t jenkins_py /home/jesper/git/docker/jenkins_y
+ExecStartPre=/usr/bin/docker build -t jenkins_py $PWD
 ExecStart=/usr/bin/docker $DOCKER_ARGS
 
 [Install]
